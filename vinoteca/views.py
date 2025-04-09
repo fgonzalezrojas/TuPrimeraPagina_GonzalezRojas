@@ -2,7 +2,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.http import HttpResponse
-
 def vinos(request):
-    return HttpResponse("Vinos ON")
+    return render(request, "vinoteca/vinos.html")
