@@ -4,5 +4,5 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-def vinoteca(request):
-    return HttpResponse("Vinoteca ON")
+def vinos(request):
+    return HttpResponse("Vinos ON")

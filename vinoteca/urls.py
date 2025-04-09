@@ -1,7 +1,7 @@
 from django.urls import path
 
-from vinoteca.views import vinoteca
+from vinoteca.views import vinos
 
 urlpatterns = [
-        path("vinoteca", vinoteca),
+        path("vinos", vinos),
 ]
