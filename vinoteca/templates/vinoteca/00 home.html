@@ -71,34 +71,23 @@
 <body>
     <header>
         <h1>Vinoteca El Buen Vino</h1>
-        <p>Selección Exclusiva de Vinos de Alta Gama</p>
+        <p>Selección Exclusiva de Bebidas de Alta Gama</p>
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Nuestra Selección</a>
-        <a href="#">Eventos</a>
-        <a href="#">Contacto</a>
+        <a href="http://127.0.0.1:8000/vinoteca/vino">VINO</a>
+        <a href="http://127.0.0.1:8000/vinoteca/whisky">WHISKY</a>
+        <a href="http://127.0.0.1:8000/vinoteca/champagne">CHAMPAGNE</a>
     </nav>
 
-    <div class="container">
-        <div class="wine-section">
-            <img src="vino_tinto.jpg" alt="Vino Tinto de Alta Gama">
-            <h2>Vino Tinto Reserva Especial</h2>
-            <p>Un vino tinto elegante con notas de frutos rojos y roble francés. Ideal para acompañar carnes rojas y quesos maduros.</p>
-            <p>Precio: $120.00</p>
-        </div>
-
-        <div class="wine-section">
-            <img src="vino_blanco.jpg" alt="Vino Blanco de Alta Gama">
-            <h2>Vino Blanco Edición Limitada</h2>
-            <p>Un vino blanco fresco y aromático con toques cítricos y florales. Perfecto para mariscos y ensaladas.</p>
-            <p>Precio: $95.00</p>
-        </div>
+    <div>
+       {% block INICIO %}
+        
+       {% endblock INICIO %}
     </div>
 
     <footer>
-        <p>© 2024 Vinoteca El Buen Vino. Todos los derechos reservados.</p>
+        <p>© 2025 Vinoteca El Buen Vino. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
