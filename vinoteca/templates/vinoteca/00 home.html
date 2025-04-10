@@ -32,16 +32,72 @@
             text-decoration: none;
             padding: 0.5em 1em;
             margin: 0 1em;
+            border: 2px solid #8B8B83; /* Marco individual */
+            border-radius: 5px; /* Bordes redondeados */
         }
 
         nav a:hover {
             background-color: #ddd;
         }
 
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #eee;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #333;
+            display: block;
+            transition: 0.3s;
+        }
+
+        sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .menu-bar {
+            background-color: #222;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-bar .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
         .container {
             width: 80%;
             margin: 2em auto;
             overflow: hidden;
+            transition: margin-left .5s;
+            padding: 16px;
         }
 
         .wine-section {
@@ -66,6 +122,21 @@
             padding: 1em 0;
             border-top: 2px solid #555;
         }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-section h3 {
+            padding: 8px 8px 8px 32px;
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+        }
+
+        .sidebar-admin {
+            margin-top: 20px; /* Ajusta el margen superior para colocarlo más arriba */
+        }
     </style>
 </head>
 <body>
@@ -74,20 +145,51 @@
         <p>Selección Exclusiva de Bebidas de Alta Gama</p>
     </header>
 
+    <div class="menu-bar">
+        <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+        <div class="sidebar-section">
+            <h3>Nuestra selección</h3>
+            <a href="{% url 'vinoteca:vino'%}">VINOS</a>
+            <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
+            <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
+        </div>
+
+        <div class="sidebar-admin">
+            <a href="{% url 'vinoteca:administracion' %}">ADMINISTRACIÓN</a>
+        </div>
+    </div>
+
     <nav>
         <a href="{% url 'vinoteca:vino'%}">VINO</a>
         <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
         <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
     </nav>
 
-    <div>
-       {% block INICIO %}
-        
-       {% endblock INICIO %}
+    <div class="container" id="main">
+        {% block INICIO %}
+
+        {% endblock INICIO %}
     </div>
 
     <footer>
         <p>© 2025 Barrica de Roble. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'vinoteca:alta_productos' %}" style="background-color: #8B8B83;
+                                                    border: none;
+                                                    color: black;
+                                                    padding: 10px 20px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    margin: 4px 2px;
+                                                    cursor: pointer;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    width: 150px; /* Ancho fijo */
+                                                    min-width: 150px;">ALTA DE PRODUCTOS</a>
+</div>
+{% endblock INICIO %}
