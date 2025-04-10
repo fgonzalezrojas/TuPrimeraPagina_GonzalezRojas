@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinoteca Boutique - Alta Gama</title>
+    <title>Barrica de Roble - Alta Gama</title>
     <style>
         body {
             font-family: 'Times New Roman', serif;
@@ -70,14 +70,14 @@
 </head>
 <body>
     <header>
-        <h1>Vinoteca El Buen Vino</h1>
+        <h1>Barrica de Roble</h1>
         <p>Selección Exclusiva de Bebidas de Alta Gama</p>
     </header>
 
     <nav>
-        <a href="http://127.0.0.1:8000/vinoteca/vino">VINO</a>
-        <a href="http://127.0.0.1:8000/vinoteca/whisky">WHISKY</a>
-        <a href="http://127.0.0.1:8000/vinoteca/champagne">CHAMPAGNE</a>
+        <a href="{% url 'vinoteca:vino'%}">VINO</a>
+        <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
+        <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
     </nav>
 
     <div>
@@ -87,7 +87,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Vinoteca El Buen Vino. Todos los derechos reservados.</p>
+        <p>© 2025 Barrica de Roble. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
