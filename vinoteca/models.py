@@ -3,10 +3,18 @@ from django.db import models
 # Create your models here.
 
 class VinotecaProducto(models.Model):
-    bebida = models.CharField(max_length=50) #Vino
+
+    bebida_opciones = [
+        ("Vino", "Vino"),
+        ("Whisky" , "Whisky"),
+        ("Champagne" , "Champagne"),
+    ]
+
+    bebida = models.CharField(max_length=50 , choices=bebida_opciones) #Vino
     color = models.CharField(max_length=50)  #Tinto
     variedad = models.CharField(max_length=50) #Malbec
     marca = models.CharField(max_length=50) #Terrazas de Los Andes
+    etiqueta = models.CharField(max_length=50) #Reserva
     fabricante = models.CharField(max_length=13) #Moet Hennessy
     formato = models.CharField(max_length=50) #Botella
     tamaño_ml = models.CharField(max_length=50) #750
@@ -15,4 +23,4 @@ class VinotecaProducto(models.Model):
 
     def __str__(self):
         return f"{self.marca} {self.variedad} {self.tamaño_ml}"
-    
+

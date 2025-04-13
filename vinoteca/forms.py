@@ -9,6 +9,7 @@ class VinotecaProductoForm(ModelForm):
                   "color" ,
                   "variedad" ,
                   "marca" ,
+                  "etiqueta",
                   "fabricante" ,
                   "formato" ,
                   "tamaño_ml" ,

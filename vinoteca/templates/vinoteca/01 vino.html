@@ -2,6 +2,12 @@
 
 {% block INICIO %}
 
-    ACÁ VAN LOS VINOS
-        
+ACA VAN LOS VINOS
+
+    {% for material in materiales %}
+
+        {{ material.bebida }}
+
+    {% endfor %}
+            
 {% endblock INICIO %}

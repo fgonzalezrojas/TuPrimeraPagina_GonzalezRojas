@@ -36,6 +36,7 @@ def alta_productos(request):
                 color = formulario.cleaned_data["color"],
                 variedad = formulario.cleaned_data["variedad"],
                 marca = formulario.cleaned_data["marca"],
+                etiqueta = formulario.cleaned_data["etiqueta"],
                 fabricante = formulario.cleaned_data["fabricante"],
                 formato = formulario.cleaned_data["formato"],
                 tamaño_ml = formulario.cleaned_data["tamaño_ml"],
@@ -48,3 +49,10 @@ def alta_productos(request):
         formulario = VinotecaProductoForm()
         contexto = {"formulario" : VinotecaProductoForm()}
     return render(request, "vinoteca/08 alta_productos.html", context= contexto)
+
+def lista_productos(request):
+    modelos = VinotecaProducto.objects.all()
+    contexto = {
+        "materiales": modelos
+    }
+    return render(request, "vinoteca/01 vino.html", context= contexto)
