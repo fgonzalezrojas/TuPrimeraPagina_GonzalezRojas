@@ -6,7 +6,7 @@
     <title>Barrica de Roble - Alta Gama</title>
     <style>
         body {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Calibri', sans-serif; /* Fuente Calibri aplicada */
             background-color: #f8f8f8;
             color: #333;
             margin: 0;
@@ -25,15 +25,6 @@
             background-color: #eee;
             padding: 1em 0;
             text-align: center;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            padding: 0.5em 1em;
-            margin: 0 1em;
-            border: 2px solid #8B8B83; /* Marco individual */
-            border-radius: 5px; /* Bordes redondeados */
         }
 
         nav a:hover {
@@ -135,7 +126,7 @@
         }
 
         .sidebar-admin {
-            margin-top: 20px; /* Ajusta el margen superior para colocarlo más arriba */
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -165,9 +156,51 @@
     </div>
 
     <nav>
-        <a href="{% url 'vinoteca:vino'%}">VINO</a>
-        <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
-        <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
+        <a href="{% url 'vinoteca:vino'%}" style="color: #333;
+                                                    text-decoration: none;
+                                                    margin: 0 1em;
+                                                    border: 2px solid #8B8B83;
+                                                    padding: 10px 20px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    margin: 4px 2px;
+                                                    cursor: pointer;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    width: 150px; /* Ancho fijo */
+                                                    min-width: 150px;">VINO</a>
+        <a href="{% url 'vinoteca:whisky'%}" style="color: #333;
+                                                    text-decoration: none;
+                                                    margin: 0 1em;
+                                                    border: 2px solid #8B8B83;
+                                                    padding: 10px 20px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    margin: 4px 2px;
+                                                    cursor: pointer;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    width: 150px; /* Ancho fijo */
+                                                    min-width: 150px;">WHISKY</a>
+        <a href="{% url 'vinoteca:champagne'%}" style="color: #333;
+                                                    text-decoration: none;
+                                                    margin: 0 1em;
+                                                    border: 2px solid #8B8B83;
+                                                    padding: 10px 20px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    margin: 4px 2px;
+                                                    cursor: pointer;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    width: 150px; /* Ancho fijo */
+                                                    min-width: 150px;">CHAMPAGNE</a>
     </nav>
 
     <div class="container" id="main">

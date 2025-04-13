@@ -1,11 +1,21 @@
 from django.urls import path
 
-from vinoteca.views import vino , whisky , champagne , administracion , proveedores , productos , clientes , alta_productos
+from vinoteca.views import (
+    vino ,
+    whisky ,
+    champagne ,
+    administracion ,
+    proveedores ,
+    productos ,
+    clientes ,
+    alta_productos, 
+    lista_productos,
+)
 
 app_name = "vinoteca"
 
 urlpatterns = [
-        path("vino", vino , name = "vino"),
+        path("vino", lista_productos , name = "vino"),
         path("whisky", whisky , name = "whisky"),
         path("champagne", champagne , name = "champagne"),
         path("administracion", administracion , name = "administracion"),

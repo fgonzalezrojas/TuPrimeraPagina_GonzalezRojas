@@ -2,12 +2,12 @@
 
 {% block INICIO %}
 
-ACA VAN LOS VINOS
+    SELECCIÓN DE VINOS
 
     {% for material in materiales %}
-
-        {{ material.bebida }}
-
+        {% if material.bebida == "Vino" %}
+            <li>{{ material.etiqueta }} - {{ material.tamaño_ml }} ml | $ {{ material.precio }}</li>
+        {% endif %}
     {% endfor %}
-            
+
 {% endblock INICIO %}
