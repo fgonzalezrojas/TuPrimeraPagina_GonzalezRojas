@@ -16,3 +16,11 @@ class VinotecaProductoForm(ModelForm):
                   "EAN" ,
                   "precio",]
         
+class VinotecaProductoBusquedaForm(ModelForm):
+    
+    class Meta:
+        model = VinotecaProducto
+        fields = [
+                  "etiqueta",
+                 ]
+

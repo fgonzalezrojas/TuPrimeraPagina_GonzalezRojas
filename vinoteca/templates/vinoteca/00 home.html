@@ -144,10 +144,11 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
         <div class="sidebar-section">
-            <h3>Nuestra selección</h3>
+            <h3>NUESTRA SELECCIÓN</h3>
             <a href="{% url 'vinoteca:vino'%}">VINOS</a>
             <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
             <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
+            <a href="{% url 'vinoteca:busqueda_productos'%}">BUSCAR</a>
         </div>
 
         <div class="sidebar-admin">
@@ -201,6 +202,21 @@
                                                     outline: none;
                                                     width: 150px; /* Ancho fijo */
                                                     min-width: 150px;">CHAMPAGNE</a>
+        <a href="{% url 'vinoteca:busqueda_productos'%}" style="color: #333;
+                                                    text-decoration: none;
+                                                    margin: 0 1em;
+                                                    border: 2px solid #8B8B83;
+                                                    padding: 10px 20px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    display: inline-block;
+                                                    font-size: 16px;
+                                                    margin: 4px 2px;
+                                                    cursor: pointer;
+                                                    border-radius: 5px;
+                                                    outline: none;
+                                                    width: 150px; /* Ancho fijo */
+                                                    min-width: 150px;">BUSCAR</a>
     </nav>
 
     <div class="container" id="main">

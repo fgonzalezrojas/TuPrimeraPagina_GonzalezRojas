@@ -8,9 +8,10 @@ from vinoteca.views import (
     proveedores ,
     productos ,
     clientes ,
-    alta_productos, 
-    lista_productos,
-)
+    alta_productos , 
+    lista_productos ,
+    busqueda_productos ,
+    )
 
 app_name = "vinoteca"
 
@@ -23,4 +24,6 @@ urlpatterns = [
         path("productos", productos , name = "productos"),
         path("clientes", clientes , name = "clientes"),
         path("alta_productos", alta_productos , name = "alta_productos"),
-]
+        path("busqueda_productos", busqueda_productos , name = "busqueda_productos"),
+        ]
+

@@ -23,8 +23,13 @@ def productos(request):
 def clientes(request):
     return render(request, "vinoteca/07 clientes.html")
 
-from vinoteca.forms import VinotecaProductoForm
+from vinoteca.forms import ( 
+    VinotecaProductoForm , 
+    VinotecaProductoBusquedaForm ,
+)
+
 from vinoteca.models import VinotecaProducto
+
 from django.shortcuts import redirect
 
 def alta_productos(request):
@@ -56,3 +61,23 @@ def lista_productos(request):
         "materiales": modelos
     }
     return render(request, "vinoteca/01 vino.html", context= contexto)
+
+def busqueda_productos(request):
+    if request.method == "GET":
+        contexto = {"formulario" : VinotecaProductoBusquedaForm()}
+        return render(request, "vinoteca/09 busqueda_productos.html", context= contexto)
+    else:
+        formulario = VinotecaProductoBusquedaForm(request.POST)
+
+        if formulario.is_valid():
+            etiqueta = formulario.cleaned_data["etiqueta"]
+            resultado_busqueda = VinotecaProducto.objects.filter(etiqueta__icontains=etiqueta)
+            
+            contexto = {
+                "skus" : resultado_busqueda,
+                }
+            return render(request, "vinoteca/10 maestro_productos.html", context= contexto)
+        
+        contexto = {"formulario" : VinotecaProductoBusquedaForm()}
+        return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
+    
