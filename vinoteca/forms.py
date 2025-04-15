@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from vinoteca.models import (
     VinotecaProducto,
     VinotecaProveedor,
+    VinotecaCliente,
 )
 
 class VinotecaProductoForm(ModelForm):
@@ -43,3 +44,20 @@ class VinotecaProveedorForm(ModelForm):
             "telefono" , 
             "mail" ,]
         
+class VinotecaClienteForm(ModelForm):
+    
+    class Meta:
+        model = VinotecaCliente
+        fields = [
+            "nombre" ,
+            "apellido" ,
+            "DNI" ,
+            "mail" ,
+            "provincia" ,
+            "localidad" ,
+            "codigo_postal" ,
+            "calle" ,
+            "altura" , 
+            "piso" ,
+            "telefono" ,]
+

@@ -46,3 +46,20 @@ class VinotecaProveedor(models.Model):
     def __str__(self):
         return f"{self.razon_social} {self.cuit} {self.provincia}"
     
+class VinotecaCliente(models.Model):
+    
+    nombre = models.CharField(max_length=200)
+    apellido = models.CharField(max_length=200)
+    DNI = models.IntegerField()
+    mail = models.CharField(max_length=200)
+    provincia = models.CharField(max_length=100)
+    localidad = models.CharField(max_length=100)
+    codigo_postal = models.IntegerField()
+    calle = models.CharField(max_length=100)
+    altura =  models.CharField(max_length=50)
+    piso =  models.CharField(max_length=50)
+    telefono = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.apellido} {self.nombre} {self.DNI}"
+    

@@ -1,0 +1,14 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ formulario.as_p }}
+
+        <button type="submit">Dar de alta</button>
+
+    </form>
+        
+{% endblock INICIO %}
