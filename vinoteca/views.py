@@ -61,12 +61,26 @@ def alta_productos(request):
         contexto = {"formulario" : VinotecaProductoForm()}
     return render(request, "vinoteca/08 alta_productos.html", context= contexto)
 
-def lista_productos(request):
-    modelos = VinotecaProducto.objects.all()
+def lista_vino(request):
+    modelos = VinotecaProducto.objects.filter(bebida__icontains="vino")
     contexto = {
         "materiales": modelos
     }
     return render(request, "vinoteca/01 vino.html", context= contexto)
+
+def lista_whisky(request):
+    modelos = VinotecaProducto.objects.filter(bebida__icontains="whisky")
+    contexto = {
+        "materiales": modelos
+    }
+    return render(request, "vinoteca/02 whisky.html", context= contexto)
+
+def lista_champagne(request):
+    modelos = VinotecaProducto.objects.filter(bebida__icontains="champagne")
+    contexto = {
+        "materiales": modelos
+    }
+    return render(request, "vinoteca/03 champagne.html", context= contexto)
 
 def busqueda_productos(request):
     if request.method == "GET":

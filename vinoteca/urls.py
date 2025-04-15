@@ -9,7 +9,9 @@ from vinoteca.views import (
     productos ,
     clientes ,
     alta_productos , 
-    lista_productos ,
+    lista_vino ,
+    lista_whisky ,
+    lista_champagne ,
     busqueda_productos ,
     alta_proveedores ,
     alta_clientes ,
@@ -18,9 +20,9 @@ from vinoteca.views import (
 app_name = "vinoteca"
 
 urlpatterns = [
-        path("vino", lista_productos , name = "vino"),
-        path("whisky", whisky , name = "whisky"),
-        path("champagne", champagne , name = "champagne"),
+        path("vino", lista_vino , name = "vino"),
+        path("whisky", lista_whisky , name = "whisky"),
+        path("champagne", lista_champagne , name = "champagne"),
         path("administracion", administracion , name = "administracion"),
         path("proveedores", proveedores , name = "proveedores"),
         path("productos", productos , name = "productos"),

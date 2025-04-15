@@ -2,6 +2,12 @@
 
 {% block INICIO %}
 
-⚠️ SITIO EN CONSTRUCCIÓN ⚠️
-        
+    SELECCIÓN DE WHISKY
+
+    {% for material in materiales %}
+        {% if material.bebida == "Whisky" %}
+            <li>{{ material.etiqueta }} - {{ material.tamaño_ml }} ml | $ {{ material.precio }}</li>
+        {% endif %}
+    {% endfor %}
+
 {% endblock INICIO %}
