@@ -11,6 +11,7 @@ from vinoteca.views import (
     alta_productos , 
     lista_productos ,
     busqueda_productos ,
+    alta_proveedores ,
     )
 
 app_name = "vinoteca"
@@ -25,5 +26,6 @@ urlpatterns = [
         path("clientes", clientes , name = "clientes"),
         path("alta_productos", alta_productos , name = "alta_productos"),
         path("busqueda_productos", busqueda_productos , name = "busqueda_productos"),
+        path("alta_proveedores", alta_proveedores , name = "alta_proveedores"),
         ]
 

@@ -34,4 +34,4 @@ Funcionamiento del sitio web
     - "PRODUCTOS" (tiene el link del formulario de alta de prodcutos - ingresando aquí y completando los campos, creamos los objetos del modelo "VinotecaProducto" -);
     - CLIENTES: en construcción;
 
-6- Para deneter el servidor presionamos ctrl+c en la terminal;
+6- Para deneter el servidor presionamos ctrl+c en la terminal.

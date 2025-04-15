@@ -1,16 +1,13 @@
 {% extends 'vinoteca/00 home.html' %}
 
 {% block INICIO %}
-
-BÚSQUEDA DE BEBIDAS
-
     <form method="POST">
 
         {% csrf_token %}
 
         {{ formulario.as_p }}
 
-        <button type="submit">Buscar</button>
+        <button type="submit">Dar de alta</button>
 
     </form>
         

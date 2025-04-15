@@ -24,3 +24,25 @@ class VinotecaProducto(models.Model):
     def __str__(self):
         return f"{self.marca} {self.variedad} {self.tamaño_ml}"
 
+class VinotecaProveedor(models.Model):
+    
+    iva_opciones = [
+        ("RI", "Responsable Inscripto"),
+        ("MT" , "Monotributista"),
+        ("CF" , "Consumidor fina"),
+    ]
+    
+    razon_social = models.CharField(max_length=200)
+    cuit = models.IntegerField()
+    provincia = models.CharField(max_length=100)
+    localidad = models.CharField(max_length=100)
+    codigo_postal = models.IntegerField()
+    calle = models.CharField(max_length=100)
+    altura =  models.CharField(max_length=50)
+    iva = models.CharField(max_length=100 , choices=iva_opciones)
+    telefono = models.IntegerField()
+    mail = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.razon_social} {self.cuit} {self.provincia}"
+    

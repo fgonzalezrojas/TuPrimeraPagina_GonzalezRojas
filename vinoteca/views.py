@@ -26,9 +26,13 @@ def clientes(request):
 from vinoteca.forms import ( 
     VinotecaProductoForm , 
     VinotecaProductoBusquedaForm ,
+    VinotecaProveedorForm ,
 )
 
-from vinoteca.models import VinotecaProducto
+from vinoteca.models import (
+    VinotecaProducto,
+    VinotecaProveedor,
+)
 
 from django.shortcuts import redirect
 
@@ -81,3 +85,28 @@ def busqueda_productos(request):
         contexto = {"formulario" : VinotecaProductoBusquedaForm()}
         return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
     
+from django.shortcuts import redirect
+
+def alta_proveedores(request):
+    if request.method == "POST":
+        formulario = VinotecaProveedorForm(request.POST)
+        if formulario.is_valid():
+            BD_Modelo = VinotecaProveedor(
+                razon_social = formulario.cleaned_data["razon_social"],
+                cuit = formulario.cleaned_data["cuit"],
+                provincia = formulario.cleaned_data["provincia"],
+                localidad = formulario.cleaned_data["localidad"],
+                codigo_postal = formulario.cleaned_data["codigo_postal"],
+                calle = formulario.cleaned_data["calle"],
+                altura = formulario.cleaned_data["altura"],
+                iva = formulario.cleaned_data["iva"],
+                telefono = formulario.cleaned_data["telefono"],
+                mail = formulario.cleaned_data["mail"],
+            )
+            BD_Modelo.save()
+            return redirect("vinoteca:alta_proveedores")
+    else:
+        formulario = VinotecaProveedorForm()
+        contexto = {"formulario" : VinotecaProveedorForm()}
+    return render(request, "vinoteca/11 alta_proveedores.html", context= contexto)
+
