@@ -15,7 +15,7 @@ Barrica de Roble es un sitio web creado para la compra-venta de bebidas alcoholi
 
 Funcionamiento del sitio web
 
-1- Hacer correr el servidor mediante el comando python manage.py runserver;
+1- Hacer correr el servidor mediante el comando python manage.py runserver.
 
 2- Acceder al sitio web de Barrica de Roble a traves de cualquiera de estos 3 urls:
     - http://127.0.0.1:8000/vinoteca/vino (muestra todos los vinos que se ofrecen en el sitio);
@@ -27,11 +27,11 @@ Funcionamiento del sitio web
     - "WHISKY";
     - "CHAMPAGNE";
     - "BUSCAR" (que, a traves de un buscador, permite encontrar los productos disponibles utilizando como atributo de busqueda la etiqueta); y
-    - "ADMINISTRACIÓN" (unicamente visible desde el panel de navegacion lateral)
+    - "ADMINISTRACIÓN" (unicamente visible desde el panel de navegacion lateral).
 
 5- "ADMINISTRACIÓN", nos conduce a:
-    - "PROVEEDORES" (en construcción);
-    - "PRODUCTOS" (tiene el link del formulario de alta de prodcutos - ingresando aquí y completando los campos, creamos los objetos del modelo "VinotecaProducto" -);
-    - CLIENTES: en construcción;
+    - "PROVEEDORES" (contiene el link al formulario de alta de proveedores - ingresando aquí y completando los campos, creamos los objetos del modelo "VinotecaProveedor" -);
+    - "PRODUCTOS" (tiene el acceso al formulario de alta de prodcutos - ingresando aquí y completando los campos, creamos los objetos del modelo "VinotecaProducto" -);
+    - "CLIENTES" (tiene el hipervinculo al formulario de alta de clientes - ingresando aquí y completando los campos, creamos los objetos del modelo "VinotecaCliente" -).
 
-6- Para deneter el servidor presionamos ctrl+c en la terminal.
+6- Para deneter el servidor presionamos "ctrl + c" en la terminal.
