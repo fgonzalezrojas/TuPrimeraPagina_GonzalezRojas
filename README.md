@@ -11,6 +11,9 @@ superuser: vinoteca_admin
 email: fernandodgr@hotmail.com
 pass: vinoteca@1234
 
+usuario: vinoteca_usuario01
+pass: passwordusuario01
+
 Barrica de Roble es un sitio web creado para la compra-venta de bebidas alcoholicas de alta gama.
 
 Funcionamiento del sitio web
