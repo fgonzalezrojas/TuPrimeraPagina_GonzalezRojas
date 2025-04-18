@@ -150,3 +150,66 @@ def alta_clientes(request):
         contexto = {"formulario" : VinotecaClienteForm()}
     return render(request, "vinoteca/14 alta_clientes.html", context= contexto)
 
+# CRUD | BCV
+
+def home(request):
+    return render(request, "vinoteca/00 home.html")
+
+from django.views.generic import (
+    CreateView ,
+    UpdateView , 
+    DeleteView ,
+    DetailView ,
+    ListView ,
+)
+
+class VinotecaProductoListView(ListView):
+    model = VinotecaProducto
+    template_name = "vinoteca/cbv/01 productos_lista.html"
+    context_object_name = "materiales"
+
+class VinotecaProductoCreateView(CreateView):
+    model = VinotecaProducto
+    fields = [
+        "bebida" ,
+        "color" ,
+        "variedad" ,
+        "marca" ,
+        "etiqueta",
+        "fabricante" ,
+        "formato" ,
+        "tamaño_ml" ,
+        "EAN" ,
+        "precio" ,
+        ]
+    template_name = "vinoteca/cbv/02 productos_alta.html"
+    success_url = "lista_productos"
+
+class VinotecaProductoDetailView(DetailView):
+    model = VinotecaProducto
+    template_name = "vinoteca/cbv/03 productos_detalle.html"
+
+class VinotecaProductoUpdateView(UpdateView):
+    model = VinotecaProducto
+    fields = [
+        "bebida" ,
+        "color" ,
+        "variedad" ,
+        "marca" ,
+        "etiqueta",
+        "fabricante" ,
+        "formato" ,
+        "tamaño_ml" ,
+        "EAN" ,
+        "precio" ,
+        ]
+    template_name = "vinoteca/cbv/04 productos_editar.html"
+    success_url = "vinoteca/cbv/03 productos_detalle.html"
+
+from django.urls import reverse_lazy
+
+class VinotecaProductoDeleteView(DeleteView):
+    model = VinotecaProducto
+    template_name = "vinoteca/cbv/05 productos_borrar.html"
+    success_url = reverse_lazy("vinoteca:lista_productos")
+

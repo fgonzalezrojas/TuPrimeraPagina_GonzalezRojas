@@ -1,0 +1,19 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+
+    SELECCIÓN DE BEBIDAS
+
+    {% for material in materiales %}
+        
+        <li>{{ material.etiqueta }} - {{ material.tamaño_ml }} ml | $ {{ material.precio }}</li>
+        <a href="{% url 'vinoteca:cbv/detalle_productos' material.pk %}"> 🔍 Detalles </a> |
+        <a href="{% url 'vinoteca:cbv/editar_productos' material.pk %}"> ✏️ Editar </a> |
+        <a href="{% url 'vinoteca:cbv/eliminar_productos' material.pk %}"> 🗑️ Eliminar</a> |
+        
+
+    {% empty %}
+    <li> No hay productos dados de alta </li> 
+    {% endfor %}
+
+{% endblock INICIO %}
