@@ -151,11 +151,27 @@
             <a href="{% url 'vinoteca:busqueda_productos'%}">BUSCAR</a>
         </div>
 
-        <div class="sidebar-admin">
-            <h3><a href="{% url 'vinoteca:administracion' %}">ADMINISTRACIÓN</a></h3>
-            <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
-            <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
-        </div>
+        <!-- *** INICIO DE SESION *** -->
+
+        <h3 style="text-align: center; color: steelblue;"> 🔑 STAFF 💻</h3>
+
+        {% if user.is_authenticated %}
+            <p style="text-align: center; color: steelblue;">
+            <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
+            </p>
+                    
+            <div class="sidebar-admin">
+                <h3><a href="{% url 'vinoteca:administracion' %}">ADMINISTRACIÓN</a></h3>
+                <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
+                <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
+            </div>
+        
+        {% else %}
+            <a href="{% url 'cuentas:login' %}">Iniciar sesión</a>
+            <a href="{% url 'cuentas:signup' %}">Registrarse</a>
+        
+        {% endif %}
+
     </div>
 
     <nav>
@@ -223,23 +239,7 @@
 
     <div class="container" id="main">
         {% block INICIO %}
-
-    <!-- *** INICIO DE SESION *** -->
-
-     <<h3 style="text-align: center; color: steelblue;"> 🍷 ¿Posees una cuenta?</h3>
-
-    {% if user.is_authenticated %}
-     <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
-    {% else %}
-        <p style="text-align: center;">
-        <a href="{% url 'cuentas:login' %}">Iniciar sesión</a>
-        </p>
-
-        <p style="text-align: center;">   
-        <a href="{% url 'cuentas:signup' %}">Registrarse</a>
-        </p>
-    {% endif %}
-
+    
         {% endblock INICIO %}
     </div>
 
