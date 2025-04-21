@@ -5,252 +5,327 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barrica de Roble - Alta Gama</title>
     <style>
-        body {
-            font-family: 'Calibri', sans-serif; /* Fuente Calibri aplicada */
-            background-color: #f8f8f8;
-            color: #333;
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
+            overflow: auto;
+        }
+
+        body {
+            font-family: 'Calibri', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
             background-color: #222;
             color: #fff;
             text-align: center;
-            padding: 2em 0;
-            border-bottom: 2px solid #555;
-        }
-
-        nav {
-            background-color: #eee;
             padding: 1em 0;
-            text-align: center;
-        }
-
-        nav a:hover {
-            background-color: #ddd;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #eee;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #333;
-            display: block;
-            transition: 0.3s;
-        }
-
-        sidebar a:hover {
-            background-color: #ddd;
-        }
-
-        sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
+            border-bottom: 2px solid #555;
         }
 
         .menu-bar {
             background-color: #222;
             color: white;
-            padding: 10px 15px;
+            padding: 6px 10px;
             display: flex;
             align-items: center;
         }
 
         .menu-bar .openbtn {
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
             background: none;
             border: none;
             color: white;
         }
 
-        .container {
-            width: 80%;
-            margin: 2em auto;
+        nav {
+            background-color: #eee;
+            padding: 0.3em 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.2em;
+            border: 1px solid #8B8B83;
+            padding: 5px 8px;
+            text-align: center;
+            display: inline-block;
+            font-size: 12px;
+            margin: 1px 0.5px;
+            cursor: pointer;
+            border-radius: 3px;
+            outline: none;
+            width: auto;
+            min-width: 0;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        .main-container {
+            display: flex;
+            flex: 1;
             overflow: hidden;
+        }
+
+        .sidebar {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: 0.5s;
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            color: #f8f8f8;
+            height: 100%;
+            font-size: 12px;
+        }
+
+        .sidebar a {
+            padding: 8px 15px;
+            text-decoration: none;
+            font-size: 12px;
+            color: #f8f8f8;
+            display: block;
+            transition: 0.3s;
+            line-height: 1.2;
+            border-bottom: none; /* Aseguramos que los links generales no tengan borde */
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 24px;
+            margin-left: 30px;
+            color: #f8f8f8;
+        }
+
+        .sidebar-section {
+            margin-bottom: 10px;
+            padding-left: 15px;
+        }
+
+        .sidebar-section h3 {
+            padding: 6px 15px;
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 0.3em;
+            border-bottom: 1px solid #555; /* Línea debajo del título de la sección */
+            padding-left: 15px;
+        }
+
+        .sidebar-section > a {
+            padding-left: 25px;
+            border-bottom: none; /* Aseguramos que los links de sección no tengan borde */
+        }
+
+        .sidebar-admin {
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+
+        .sidebar-admin h3 a {
+            color: steelblue;
+            font-size: 14px;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        .sidebar-admin a {
+            padding-left: 25px;
+            font-size: 10px;
+            /* border-bottom: 1px solid #444; */ /* Comentamos esta línea para quitar las líneas continuas */
+            line-height: 1.2;
+            margin-bottom: 0.1em;
+        }
+
+        .sidebar h3[style*="STAFF"] {
+            text-align: left;
+            padding: 6px 15px;
+            font-size: 14px;
+            color: steelblue;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid #555; /* Línea debajo del título de STAFF */
+        }
+
+        .sidebar p[style*="Cerrar sesión"] a {
+            color: #f8f8f8;
+            text-decoration: none;
+            padding-left: 15px;
+            font-size: 10px;
+            margin-bottom: 0;
+        }
+
+        .sidebar p[style*="Cerrar sesión"] a:hover {
+            color: #ddd;
+        }
+
+        .sidebar > a {
+            padding: 8px 15px;
+            font-size: 12px;
+            text-align: left;
+            line-height: 1.2;
+            border-bottom: none; /* Aseguramos que los links principales no tengan borde */
+        }
+
+        .container {
+            flex: 1;
+            margin: 0.5em auto;
+            overflow: auto;
             transition: margin-left .5s;
-            padding: 16px;
-        }
-
-        .wine-section {
-            width: 48%;
-            float: left;
-            margin-right: 2%;
-            background-color: #fff;
-            padding: 1.5em;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .wine-section img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 1em;
+            padding: 10px;
+            width: 95%;
         }
 
         footer {
             background-color: #222;
             color: #fff;
             text-align: center;
-            padding: 1em 0;
+            padding: 0.5em 0;
             border-top: 2px solid #555;
-        }
-
-        .sidebar-section {
-            margin-bottom: 20px;
-        }
-
-        .sidebar-section h3 {
-            padding: 8px 8px 8px 32px;
-            font-size: 20px;
-            color: #333;
-            margin: 0;
-        }
-
-        .sidebar-admin {
-            margin-top: 20px;
+            font-size: 0.8em;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Barrica de Roble</h1>
-        <p>Selección Exclusiva de Bebidas de Alta Gama</p>
+        <p style="font-size: 0.8em; margin-top: 0.3em;">Selección Exclusiva de Bebidas de Alta Gama</p>
     </header>
 
     <div class="menu-bar">
         <button class="openbtn" onclick="openNav()">☰</button>
     </div>
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div class="main-container">
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 
-        <div class="sidebar-section">
-            <h3>NUESTRA SELECCIÓN</h3>
-            <a href="{% url 'vinoteca:vino'%}">VINOS</a>
-            <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
-            <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
-            <a href="{% url 'vinoteca:busqueda_productos'%}">BUSCAR</a>
+            <div class="sidebar-section">
+                <h3>NUESTRA SELECCIÓN</h3>
+                <a href="{% url 'vinoteca:vino'%}">VINOS</a>
+                <a href="{% url 'vinoteca:whisky'%}">WHISKY</a>
+                <a href="{% url 'vinoteca:champagne'%}">CHAMPAGNE</a>
+                <a href="{% url 'vinoteca:busqueda_productos'%}">BUSCAR</a>
+            </div>
+
+            <h3 style="text-align: center; color: steelblue; font-size: 1.1em; margin-bottom: 0.2em;"> 🔑 STAFF 💻</h3>
+
+            {% if user.is_authenticated %}
+                <p style="text-align: center; color: steelblue; font-size: 0.8em; margin-bottom: 0.1em;">
+                    <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
+                </p>
+
+                <div class="sidebar-admin">
+                    <h3><a href="{% url 'vinoteca:administracion' %}" style="font-size: 1.1em;">ADMINISTRACIÓN</a></h3>
+                        PRODUCTOS
+                        <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
+                        <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
+                        PROVEEDORES
+                        <a href="{% url 'vinoteca:cbv/alta_proveedores'%}">ALTA DE PROVEEDORES</a>
+                        <a href="{% url 'vinoteca:cbv/lista_proveedores'%}">LISTA DE PROVEEDORES</a>
+                        CLIENTES
+                        <a href="{% url 'vinoteca:cbv/alta_clientes'%}">ALTA DE CLIENTES</a>
+                        <a href="{% url 'vinoteca:cbv/lista_clientes'%}">LISTA DE CLIENTES</a>
+                </div>
+
+            {% else %}
+                <a href="{% url 'cuentas:login' %}">Iniciar sesión</a>
+                <a href="{% url 'cuentas:signup' %}">Registrarse</a>
+
+            {% endif %}
+
         </div>
 
-        <!-- *** INICIO DE SESION *** -->
+        <div class="container" id="main">
+            <nav>
+                <a href="{% url 'vinoteca:vino'%}" style="color: #333;
+                                                            text-decoration: none;
+                                                            margin: 0 0.1em;
+                                                            border: 1px solid #8B8B83;
+                                                            padding: 4px 6px;
+                                                            text-align: center;
+                                                            display: inline-block;
+                                                            font-size: 10px;
+                                                            cursor: pointer;
+                                                            border-radius: 2px;
+                                                            outline: none;
+                                                            width: auto;
+                                                            min-width: 0;">VINO</a>
+                <a href="{% url 'vinoteca:whisky'%}" style="color: #333;
+                                                              text-decoration: none;
+                                                              margin: 0 0.1em;
+                                                              border: 1px solid #8B8B83;
+                                                              padding: 4px 6px;
+                                                              text-align: center;
+                                                              display: inline-block;
+                                                              font-size: 10px;
+                                                              cursor: pointer;
+                                                              border-radius: 2px;
+                                                              outline: none;
+                                                              width: auto;
+                                                              min-width: 0;">WHISKY</a>
+                <a href="{% url 'vinoteca:champagne'%}" style="color: #333;
+                                                                text-decoration: none;
+                                                                margin: 0 0.1em;
+                                                                border: 1px solid #8B8B83;
+                                                                padding: 4px 6px;
+                                                                text-align: center;
+                                                                display: inline-block;
+                                                                font-size: 10px;
+                                                                cursor: pointer;
+                                                                border-radius: 2px;
+                                                                outline: none;
+                                                                width: auto;
+                                                                min-width: 0;">CHAMPAGNE</a>
+                <a href="{% url 'vinoteca:busqueda_productos'%}" style="color: #333;
+                                                                      text-decoration: none;
+                                                                      margin: 0 0.1em;
+                                                                      border: 1px solid #8B8B83;
+                                                                      padding: 4px 6px;
+                                                                      text-align: center;
+                                                                      display: inline-block;
+                                                                      font-size: 10px;
+                                                                      cursor: pointer;
+                                                                      border-radius: 2px;
+                                                                      outline: none;
+                                                                      width: auto;
+                                                                      min-width: 0;">BUSCAR</a>
+            </nav>
 
-        <h3 style="text-align: center; color: steelblue;"> 🔑 STAFF 💻</h3>
+            {% block INICIO %}
 
-        {% if user.is_authenticated %}
-            <p style="text-align: center; color: steelblue;">
-            <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
-            </p>
-                    
-            <div class="sidebar-admin">
-                <h3><a href="{% url 'vinoteca:administracion' %}">ADMINISTRACIÓN</a></h3>
-                <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
-                <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
-            </div>
-        
-        {% else %}
-            <a href="{% url 'cuentas:login' %}">Iniciar sesión</a>
-            <a href="{% url 'cuentas:signup' %}">Registrarse</a>
-        
-        {% endif %}
-
-    </div>
-
-    <nav>
-        <a href="{% url 'vinoteca:vino'%}" style="color: #333;
-                                                    text-decoration: none;
-                                                    margin: 0 1em;
-                                                    border: 2px solid #8B8B83;
-                                                    padding: 10px 20px;
-                                                    text-align: center;
-                                                    text-decoration: none;
-                                                    display: inline-block;
-                                                    font-size: 16px;
-                                                    margin: 4px 2px;
-                                                    cursor: pointer;
-                                                    border-radius: 5px;
-                                                    outline: none;
-                                                    width: 150px; /* Ancho fijo */
-                                                    min-width: 150px;">VINO</a>
-        <a href="{% url 'vinoteca:whisky'%}" style="color: #333;
-                                                    text-decoration: none;
-                                                    margin: 0 1em;
-                                                    border: 2px solid #8B8B83;
-                                                    padding: 10px 20px;
-                                                    text-align: center;
-                                                    text-decoration: none;
-                                                    display: inline-block;
-                                                    font-size: 16px;
-                                                    margin: 4px 2px;
-                                                    cursor: pointer;
-                                                    border-radius: 5px;
-                                                    outline: none;
-                                                    width: 150px; /* Ancho fijo */
-                                                    min-width: 150px;">WHISKY</a>
-        <a href="{% url 'vinoteca:champagne'%}" style="color: #333;
-                                                    text-decoration: none;
-                                                    margin: 0 1em;
-                                                    border: 2px solid #8B8B83;
-                                                    padding: 10px 20px;
-                                                    text-align: center;
-                                                    text-decoration: none;
-                                                    display: inline-block;
-                                                    font-size: 16px;
-                                                    margin: 4px 2px;
-                                                    cursor: pointer;
-                                                    border-radius: 5px;
-                                                    outline: none;
-                                                    width: 150px; /* Ancho fijo */
-                                                    min-width: 150px;">CHAMPAGNE</a>
-        <a href="{% url 'vinoteca:busqueda_productos'%}" style="color: #333;
-                                                    text-decoration: none;
-                                                    margin: 0 1em;
-                                                    border: 2px solid #8B8B83;
-                                                    padding: 10px 20px;
-                                                    text-align: center;
-                                                    text-decoration: none;
-                                                    display: inline-block;
-                                                    font-size: 16px;
-                                                    margin: 4px 2px;
-                                                    cursor: pointer;
-                                                    border-radius: 5px;
-                                                    outline: none;
-                                                    width: 150px; /* Ancho fijo */
-                                                    min-width: 150px;">BUSCAR</a>
-    </nav>
-
-    <div class="container" id="main">
-        {% block INICIO %}
-    
-        {% endblock INICIO %}
+            {% endblock INICIO %}
+        </div>
     </div>
 
     <footer>
-        <p>© 2025 Barrica de Roble. Todos los derechos reservados.</p>
+        <p style="font-size: 0.7em;">© 2025 Barrica de Roble. Todos los derechos reservados.</p>
     </footer>
 
     <script>
         function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("mySidebar").style.width = "180px";
+            document.getElementById("main").style.marginLeft = "180px";
         }
 
         function closeNav() {

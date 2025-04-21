@@ -1,0 +1,17 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+
+    <h3 style="color: crimson; text-align: center;">⚠️ CONFIRMAR ELIMINACIÓN ⚠️</h3>
+
+    <div style="max-width: 500px; margin: 2rem auto; text-align: center;">
+        <p>¿Estás seguro que deseas eliminar <strong>{{ object.apellido }}, {{ object.nombre }} | {{ object.DNI }}</strong>?</p>
+    
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" style="background: crimson; color: white; padding: 0.5rem 1rem;"> 🗑️ Eliminar</button>
+            <a href="{% url 'vinoteca:cbv/lista_clientes' %}" style="margin-left: 1rem;">Cancelar</a>
+        </form>
+    </div>
+
+{% endblock INICIO %}

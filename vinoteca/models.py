@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+# PRODUCTO
 class VinotecaProducto(models.Model):
 
     bebida_opciones = [
@@ -24,6 +25,7 @@ class VinotecaProducto(models.Model):
     def __str__(self):
         return f"{self.marca} {self.variedad} {self.tamaño_ml}"
 
+# PROVEEDOR
 class VinotecaProveedor(models.Model):
     
     iva_opciones = [
@@ -45,7 +47,8 @@ class VinotecaProveedor(models.Model):
 
     def __str__(self):
         return f"{self.razon_social} {self.cuit} {self.provincia}"
-    
+
+# CLIENTE    
 class VinotecaCliente(models.Model):
     
     nombre = models.CharField(max_length=200)

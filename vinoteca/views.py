@@ -163,6 +163,7 @@ from django.views.generic import (
     ListView ,
 )
 
+# PRODUCTO
 class VinotecaProductoListView(ListView):
     model = VinotecaProducto
     template_name = "vinoteca/cbv/01 productos_lista.html"
@@ -212,4 +213,102 @@ class VinotecaProductoDeleteView(DeleteView):
     model = VinotecaProducto
     template_name = "vinoteca/cbv/05 productos_borrar.html"
     success_url = reverse_lazy("vinoteca:lista_productos")
+
+# PROVEEDOR
+class VinotecaProveedorListView(ListView):
+    model = VinotecaProveedor
+    template_name = "vinoteca/cbv/06 proveedores_lista.html"
+    context_object_name = "proveedores"
+
+class VinotecaProveedorCreateView(CreateView):
+    model = VinotecaProveedor
+    fields = [
+        "razon_social" ,
+        "cuit" ,
+        "provincia" ,
+        "localidad" ,
+        "codigo_postal" ,
+        "calle" ,
+        "altura" ,
+        "iva" ,
+        "telefono" ,
+        "mail" ,
+        ]
+    template_name = "vinoteca/cbv/07 proveedores_alta.html"
+    success_url = "lista_proveedores"
+
+class VinotecaProveedorDetailView(DetailView):
+    model = VinotecaProveedor
+    template_name = "vinoteca/cbv/08 proveedores_detalle.html"
+
+class VinotecaProveedorUpdateView(UpdateView):
+    model = VinotecaProveedor
+    fields = [
+        "razon_social" ,
+        "cuit" ,
+        "provincia" ,
+        "localidad" ,
+        "codigo_postal" ,
+        "calle" ,
+        "altura" ,
+        "iva" ,
+        "telefono" ,
+        "mail" ,
+        ]
+    template_name = "vinoteca/cbv/09 proveedores_editar.html"
+    success_url = "vinoteca/cbv/08 proveedores_detalle.html"
+class VinotecaProveedorDeleteView(DeleteView):
+    model = VinotecaProveedor
+    template_name = "vinoteca/cbv/10 proveedores_borrar.html"
+    success_url = reverse_lazy("vinoteca:lista_proveedores")
+
+# CLIENTE
+class VinotecaClienteListView(ListView):
+    model = VinotecaCliente
+    template_name = "vinoteca/cbv/11 clientes_lista.html"
+    context_object_name = "clientes"
+
+class VinotecaClienteCreateView(CreateView):
+    model = VinotecaCliente
+    fields = [
+        "nombre" ,
+        "apellido" ,
+        "DNI" ,
+        "mail" ,
+        "provincia" ,
+        "localidad" ,
+        "codigo_postal" ,
+        "calle" ,
+        "altura" ,
+        "piso" ,
+        "telefono" ,
+        ]
+    template_name = "vinoteca/cbv/12 clientes_alta.html"
+    success_url = "lista_clientes"
+
+class VinotecaClienteDetailView(DetailView):
+    model = VinotecaCliente
+    template_name = "vinoteca/cbv/13 clientes_detalle.html"
+
+class VinotecaClienteUpdateView(UpdateView):
+    model = VinotecaCliente
+    fields = [
+        "nombre" ,
+        "apellido" ,
+        "DNI" ,
+        "mail" ,
+        "provincia" ,
+        "localidad" ,
+        "codigo_postal" ,
+        "calle" ,
+        "altura" ,
+        "piso" ,
+        "telefono" ,
+        ]
+    template_name = "vinoteca/cbv/14 clientes_editar.html"
+    success_url = "vinoteca/cbv/13 clientes_detalle.html"
+class VinotecaClienteDeleteView(DeleteView):
+    model = VinotecaCliente
+    template_name = "vinoteca/cbv/15 clientes_borrar.html"
+    success_url = reverse_lazy("vinoteca:lista_clientes")
 

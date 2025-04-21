@@ -1,0 +1,14 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Guardar cambios ✔️</button>
+
+    </form>
+        
+{% endblock INICIO %}

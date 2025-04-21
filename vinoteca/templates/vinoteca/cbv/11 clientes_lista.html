@@ -1,0 +1,19 @@
+{% extends 'vinoteca/00 home.html' %}
+
+{% block INICIO %}
+
+    CLIENTES
+
+    {% for cliente in clientes %}
+        
+        <li>{{ cliente.apellido }}, {{ cliente.nombre }} | {{ cliente.DNI }}</li>
+        <a href="{% url 'vinoteca:cbv/detalle_clientes' cliente.pk %}"> 🔍 Detalles </a> |
+        <a href="{% url 'vinoteca:cbv/editar_clientes' cliente.pk %}"> ✏️ Editar </a> |
+        <a href="{% url 'vinoteca:cbv/eliminar_clientes' cliente.pk %}"> 🗑️ Eliminar</a> |
+        
+
+    {% empty %}
+    <li> No hay clientes dados de alta </li> 
+    {% endfor %}
+
+{% endblock INICIO %}
