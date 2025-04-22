@@ -58,7 +58,7 @@
             padding: 5px 8px;
             text-align: center;
             display: inline-block;
-            font-size: 12px;
+            font-size: 10px; /* Tamaño de fuente de la barra de navegación */
             margin: 1px 0.5px;
             cursor: pointer;
             border-radius: 3px;
@@ -187,13 +187,14 @@
             border-bottom: none; /* Aseguramos que los links principales no tengan borde */
         }
 
-        .container {
+        .container#main {
             flex: 1;
             margin: 0.5em auto;
             overflow: auto;
             transition: margin-left .5s;
             padding: 10px;
             width: 95%;
+            font-size: 10px; /* Modificamos el tamaño de la fuente del bloque INICIO */
         }
 
         footer {
@@ -237,15 +238,15 @@
 
                 <div class="sidebar-admin">
                     <h3><a href="{% url 'vinoteca:administracion' %}" style="font-size: 1.1em;">ADMINISTRACIÓN</a></h3>
-                        PRODUCTOS
-                        <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
-                        <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
-                        PROVEEDORES
-                        <a href="{% url 'vinoteca:cbv/alta_proveedores'%}">ALTA DE PROVEEDORES</a>
-                        <a href="{% url 'vinoteca:cbv/lista_proveedores'%}">LISTA DE PROVEEDORES</a>
-                        CLIENTES
-                        <a href="{% url 'vinoteca:cbv/alta_clientes'%}">ALTA DE CLIENTES</a>
-                        <a href="{% url 'vinoteca:cbv/lista_clientes'%}">LISTA DE CLIENTES</a>
+                    PRODUCTOS
+                    <a href="{% url 'vinoteca:cbv/alta_productos'%}">ALTA DE PRODUCTOS</a>
+                    <a href="{% url 'vinoteca:cbv/lista_productos'%}">LISTA DE PRODUCTOS</a>
+                    PROVEEDORES
+                    <a href="{% url 'vinoteca:cbv/alta_proveedores'%}">ALTA DE PROVEEDORES</a>
+                    <a href="{% url 'vinoteca:cbv/lista_proveedores'%}">LISTA DE PROVEEDORES</a>
+                    CLIENTES
+                    <a href="{% url 'vinoteca:cbv/alta_clientes'%}">ALTA DE CLIENTES</a>
+                    <a href="{% url 'vinoteca:cbv/lista_clientes'%}">LISTA DE CLIENTES</a>
                 </div>
 
             {% else %}
@@ -258,63 +259,76 @@
 
         <div class="container" id="main">
             <nav>
-                <a href="{% url 'vinoteca:vino'%}" style="color: #333;
+                <a href="{% url 'vinoteca:vino'%}" style="background-color: #d3d3d3; /* Gris más oscuro */
+                                                            color: #333;
                                                             text-decoration: none;
                                                             margin: 0 0.1em;
-                                                            border: 1px solid #8B8B83;
+                                                            border: 1px solid #808080; /* Borde gris oscuro */
                                                             padding: 4px 6px;
                                                             text-align: center;
                                                             display: inline-block;
                                                             font-size: 10px;
+                                                            margin: 4px 2 px;
                                                             cursor: pointer;
                                                             border-radius: 2px;
                                                             outline: none;
-                                                            width: auto;
-                                                            min-width: 0;">VINO</a>
-                <a href="{% url 'vinoteca:whisky'%}" style="color: #333;
-                                                              text-decoration: none;
-                                                              margin: 0 0.1em;
-                                                              border: 1px solid #8B8B83;
-                                                              padding: 4px 6px;
-                                                              text-align: center;
-                                                              display: inline-block;
-                                                              font-size: 10px;
-                                                              cursor: pointer;
-                                                              border-radius: 2px;
-                                                              outline: none;
-                                                              width: auto;
-                                                              min-width: 0;">WHISKY</a>
-                <a href="{% url 'vinoteca:champagne'%}" style="color: #333;
-                                                                text-decoration: none;
-                                                                margin: 0 0.1em;
-                                                                border: 1px solid #8B8B83;
-                                                                padding: 4px 6px;
-                                                                text-align: center;
-                                                                display: inline-block;
-                                                                font-size: 10px;
-                                                                cursor: pointer;
-                                                                border-radius: 2px;
-                                                                outline: none;
-                                                                width: auto;
-                                                                min-width: 0;">CHAMPAGNE</a>
-                <a href="{% url 'vinoteca:busqueda_productos'%}" style="color: #333;
-                                                                      text-decoration: none;
-                                                                      margin: 0 0.1em;
-                                                                      border: 1px solid #8B8B83;
-                                                                      padding: 4px 6px;
-                                                                      text-align: center;
-                                                                      display: inline-block;
-                                                                      font-size: 10px;
-                                                                      cursor: pointer;
-                                                                      border-radius: 2px;
-                                                                      outline: none;
-                                                                      width: auto;
-                                                                      min-width: 0;">BUSCAR</a>
+                                                            width: 150px;
+                                                            min-width: 150px;">VINO</a>
+                <a href="{% url 'vinoteca:whisky'%}" style="background-color: #d3d3d3; /* Gris más oscuro */
+                                                            color: #333;
+                                                            text-decoration: none;
+                                                            margin: 0 0.1em;
+                                                            border: 1px solid #808080; /* Borde gris oscuro */
+                                                            padding: 4px 6px;
+                                                            text-align: center;
+                                                            display: inline-block;
+                                                            font-size: 10px;
+                                                            margin: 4px 2 px;
+                                                            cursor: pointer;
+                                                            border-radius: 2px;
+                                                            outline: none;
+                                                            width: 150px;
+                                                            min-width: 150px;">WHISKY</a>
+                <a href="{% url 'vinoteca:champagne'%}" style="background-color: #d3d3d3; /* Gris más oscuro */
+                                                            color: #333;
+                                                            text-decoration: none;
+                                                            margin: 0 0.1em;
+                                                            border: 1px solid #808080; /* Borde gris oscuro */
+                                                            padding: 4px 6px;
+                                                            text-align: center;
+                                                            display: inline-block;
+                                                            font-size: 10px;
+                                                            margin: 4px 2 px;
+                                                            cursor: pointer;
+                                                            border-radius: 2px;
+                                                            outline: none;
+                                                            width: 150px;
+                                                            min-width: 150px;">CHAMPAGNE</a>
+                <a href="{% url 'vinoteca:busqueda_productos'%}" style="background-color: #d3d3d3; /* Gris más oscuro */
+                                                            color: #333;
+                                                            text-decoration: none;
+                                                            margin: 0 0.1em;
+                                                            border: 1px solid #808080; /* Borde gris oscuro */
+                                                            padding: 4px 6px;
+                                                            text-align: center;
+                                                            display: inline-block;
+                                                            font-size: 10px;
+                                                            margin: 4px 2 px;
+                                                            cursor: pointer;
+                                                            border-radius: 2px;
+                                                            outline: none;
+                                                            width: 150px;
+                                                            min-width: 150px;">BUSCAR</a>
             </nav>
 
-            {% block INICIO %}
+            <p>
+                <div style="text-align: center;">
+                    {% block INICIO %}
 
-            {% endblock INICIO %}
+                    {% endblock INICIO %}
+                </div>
+            </p>
+            
         </div>
     </div>
 
