@@ -163,6 +163,8 @@ from django.views.generic import (
     ListView ,
 )
 
+from django.urls import reverse_lazy
+
 # PRODUCTO
 class VinotecaProductoListView(ListView):
     model = VinotecaProducto
@@ -205,14 +207,18 @@ class VinotecaProductoUpdateView(UpdateView):
         "precio" ,
         ]
     template_name = "vinoteca/cbv/04 productos_editar.html"
-    success_url = "vinoteca/cbv/03 productos_detalle.html"
+    success_url = reverse_lazy("vinoteca:cbv/lista_productos")
 
-from django.urls import reverse_lazy
-
+    def get_success_url(self):
+        return self.success_url
+   
 class VinotecaProductoDeleteView(DeleteView):
     model = VinotecaProducto
     template_name = "vinoteca/cbv/05 productos_borrar.html"
-    success_url = reverse_lazy("vinoteca:lista_productos")
+    success_url = reverse_lazy("vinoteca:cbv/lista_productos")
+
+    def get_success_url(self):
+        return self.success_url
 
 # PROVEEDOR
 class VinotecaProveedorListView(ListView):
@@ -256,11 +262,17 @@ class VinotecaProveedorUpdateView(UpdateView):
         "mail" ,
         ]
     template_name = "vinoteca/cbv/09 proveedores_editar.html"
-    success_url = "vinoteca/cbv/08 proveedores_detalle.html"
+    success_url = reverse_lazy("vinoteca:cbv/lista_proveedores")
+
+    def get_success_url(self):
+        return self.success_url
 class VinotecaProveedorDeleteView(DeleteView):
     model = VinotecaProveedor
     template_name = "vinoteca/cbv/10 proveedores_borrar.html"
-    success_url = reverse_lazy("vinoteca:lista_proveedores")
+    success_url = reverse_lazy("vinoteca:cbv/lista_proveedores")
+
+    def get_success_url(self):
+        return self.success_url
 
 # CLIENTE
 class VinotecaClienteListView(ListView):
@@ -306,9 +318,15 @@ class VinotecaClienteUpdateView(UpdateView):
         "telefono" ,
         ]
     template_name = "vinoteca/cbv/14 clientes_editar.html"
-    success_url = "vinoteca/cbv/13 clientes_detalle.html"
+    success_url = reverse_lazy("vinoteca:cbv/lista_clientes")
+
+    def get_success_url(self):
+        return self.success_url
 class VinotecaClienteDeleteView(DeleteView):
     model = VinotecaCliente
     template_name = "vinoteca/cbv/15 clientes_borrar.html"
-    success_url = reverse_lazy("vinoteca:lista_clientes")
+    success_url = reverse_lazy("vinoteca:cbv/lista_clientes")
+
+    def get_success_url(self):
+        return self.success_url
 
