@@ -35,6 +35,8 @@ from vinoteca.views import (
     VinotecaClienteDetailView ,
     VinotecaClienteUpdateView ,
     VinotecaClienteDeleteView ,
+    #ABOOUT
+    about ,
     )
 
 app_name = "vinoteca"
@@ -71,5 +73,7 @@ urlpatterns = [
         path("cbv/detalle_clientes/<int:pk>", VinotecaClienteDetailView.as_view(), name ="cbv/detalle_clientes"),
         path("cbv/editar_clientes/<int:pk>", VinotecaClienteUpdateView.as_view(), name ="cbv/editar_clientes"),
         path("cbv/eliminar_clientes/<int:pk>", VinotecaClienteDeleteView.as_view(), name ="cbv/eliminar_clientes"),
+        # ABOUT
+        path("about" , about , name = "about"),
         ]
 

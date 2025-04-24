@@ -232,6 +232,11 @@
             <h3 style="text-align: center; color: steelblue; font-size: 1.1em; margin-bottom: 0.2em;"> 🔑 STAFF 💻</h3>
 
             {% if user.is_authenticated %}
+
+                {% if user.avatar and user.avatar.imagen %}
+                    <p><img src="{{ user.avatar.imagen.url }}" alt="Avatar"></p>
+                {% endif %}
+
                 <p style="text-align: center; color: steelblue; font-size: 0.8em; margin-bottom: 0.1em;">
                     <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
                 </p>
@@ -333,7 +338,12 @@
     </div>
 
     <footer>
-        <p style="font-size: 0.7em;">© 2025 Barrica de Roble. Todos los derechos reservados.</p>
+        <a style="font-size: 0.7em;">© 2025 Barrica de Roble. Todos los derechos reservados.</a>
+        <p style="float: right;">
+            <a href="{% url 'vinoteca:about'%}" style="background-color: #555; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 0.8em;">
+                Nosotros
+            </a>
+        </p>
     </footer>
 
     <script>

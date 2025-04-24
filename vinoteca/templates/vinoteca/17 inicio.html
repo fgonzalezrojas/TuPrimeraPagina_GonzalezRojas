@@ -4,4 +4,22 @@
 
     <p><h3>BIENVENIDO</h3></p>
 
+    {% if user.is_authenticated %}
+
+        {% if user.avatar and user.avatar.imagen %}
+        <p><img src="{{ user.avatar.imagen.url }}" alt="Avatar"></p>
+        {% endif %}
+
+        !<a style="text-align: center; color: steelblue; margin-bottom: 0.1em;">
+            {{user.username}}</a> has iniciado sesión!
+        <p>
+        <li class="nav-item"><a class="nav-link" href="{% url 'cuentas:editar' %}"><i class="bi bi-person-circle"></i> Editar Perfil</a></li>
+        </p>
+
+        <p>
+        <li class="nav-item"><a class="nav-link" href="{% url 'cuentas:logout' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
+        </p>
+
+    {% endif %}
+
 {% endblock INICIO %}

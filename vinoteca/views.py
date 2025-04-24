@@ -330,3 +330,6 @@ class VinotecaClienteDeleteView(DeleteView):
     def get_success_url(self):
         return self.success_url
 
+def about(request):
+    return render(request , "vinoteca/18 about.html")
+
