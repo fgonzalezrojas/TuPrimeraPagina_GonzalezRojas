@@ -16,7 +16,7 @@
         <p><strong>Telefono:</strong> {{ object.telefono }}</p>
         <p><strong>Mail:</strong> {{ object.mail }}</p>
 
-        <a href="{% url 'vinoteca:cbv/detalle_proveedores' object.pk %}">✏️ Editar</a> |
+        <a href="{% url 'vinoteca:cbv/editar_proveedores' object.pk %}">✏️ Editar</a> |
         <a href="{% url 'vinoteca:cbv/eliminar_proveedores' object.pk %}">🗑 Eliminar</a> |
         <a href="{% url 'vinoteca:cbv/lista_proveedores' %}">📋 Volver a la lista</a>
 

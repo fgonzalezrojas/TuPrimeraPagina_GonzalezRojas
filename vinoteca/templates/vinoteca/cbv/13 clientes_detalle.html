@@ -17,7 +17,7 @@
         <p><strong>Piso:</strong> {{ object.piso }}</p>
         <p><strong>Telefono:</strong> {{ object.telefono }}</p>
 
-        <a href="{% url 'vinoteca:cbv/detalle_clientes' object.pk %}">✏️ Editar</a> |
+        <a href="{% url 'vinoteca:cbv/editar_clientes' object.pk %}">✏️ Editar</a> |
         <a href="{% url 'vinoteca:cbv/eliminar_clientes' object.pk %}">🗑 Eliminar</a> |
         <a href="{% url 'vinoteca:cbv/lista_clientes' %}">📋 Volver a la lista</a>
 

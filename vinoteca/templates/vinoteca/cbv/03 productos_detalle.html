@@ -16,7 +16,7 @@
         <p><strong>EAN:</strong> {{ object.EAN }}</p>
         <p><strong>Precio:</strong> ${{ object.precio }}</p>
 
-        <a href="{% url 'vinoteca:cbv/detalle_productos' object.pk %}">✏️ Editar</a> |
+        <a href="{% url 'vinoteca:cbv/editar_productos' object.pk %}">✏️ Editar</a> |
         <a href="{% url 'vinoteca:cbv/eliminar_productos' object.pk %}">🗑 Eliminar</a> |
         <a href="{% url 'vinoteca:cbv/lista_productos' %}">📋 Volver a la lista</a>
 
