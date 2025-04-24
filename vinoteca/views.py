@@ -153,7 +153,7 @@ def alta_clientes(request):
 # CRUD | BCV
 
 def home(request):
-    return render(request, "vinoteca/00 home.html")
+    return render(request, "vinoteca/17 inicio.html")
 
 from django.views.generic import (
     CreateView ,
