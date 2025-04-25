@@ -37,7 +37,10 @@ from vinoteca.models import (
 )
 
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+@login_required
 def alta_productos(request):
     if request.method == "POST":
         formulario = VinotecaProductoForm(request.POST)
@@ -103,6 +106,7 @@ def busqueda_productos(request):
     
 from django.shortcuts import redirect
 
+@login_required
 def alta_proveedores(request):
     if request.method == "POST":
         formulario = VinotecaProveedorForm(request.POST)
@@ -126,6 +130,7 @@ def alta_proveedores(request):
         contexto = {"formulario" : VinotecaProveedorForm()}
     return render(request, "vinoteca/11 alta_proveedores.html", context= contexto)
 
+@login_required
 def alta_clientes(request):
     if request.method == "POST":
         formulario = VinotecaClienteForm(request.POST)
@@ -171,7 +176,7 @@ class VinotecaProductoListView(ListView):
     template_name = "vinoteca/cbv/01 productos_lista.html"
     context_object_name = "materiales"
 
-class VinotecaProductoCreateView(CreateView):
+class VinotecaProductoCreateView(LoginRequiredMixin, CreateView):
     model = VinotecaProducto
     fields = [
         "bebida" ,
@@ -188,11 +193,11 @@ class VinotecaProductoCreateView(CreateView):
     template_name = "vinoteca/cbv/02 productos_alta.html"
     success_url = "lista_productos"
 
-class VinotecaProductoDetailView(DetailView):
+class VinotecaProductoDetailView(LoginRequiredMixin, DetailView):
     model = VinotecaProducto
     template_name = "vinoteca/cbv/03 productos_detalle.html"
 
-class VinotecaProductoUpdateView(UpdateView):
+class VinotecaProductoUpdateView(LoginRequiredMixin, UpdateView):
     model = VinotecaProducto
     fields = [
         "bebida" ,
@@ -212,7 +217,7 @@ class VinotecaProductoUpdateView(UpdateView):
     def get_success_url(self):
         return self.success_url
    
-class VinotecaProductoDeleteView(DeleteView):
+class VinotecaProductoDeleteView(LoginRequiredMixin, DeleteView):
     model = VinotecaProducto
     template_name = "vinoteca/cbv/05 productos_borrar.html"
     success_url = reverse_lazy("vinoteca:cbv/lista_productos")
@@ -221,12 +226,12 @@ class VinotecaProductoDeleteView(DeleteView):
         return self.success_url
 
 # PROVEEDOR
-class VinotecaProveedorListView(ListView):
+class VinotecaProveedorListView(LoginRequiredMixin, ListView):
     model = VinotecaProveedor
     template_name = "vinoteca/cbv/06 proveedores_lista.html"
     context_object_name = "proveedores"
 
-class VinotecaProveedorCreateView(CreateView):
+class VinotecaProveedorCreateView(LoginRequiredMixin, CreateView):
     model = VinotecaProveedor
     fields = [
         "razon_social" ,
@@ -243,11 +248,11 @@ class VinotecaProveedorCreateView(CreateView):
     template_name = "vinoteca/cbv/07 proveedores_alta.html"
     success_url = "lista_proveedores"
 
-class VinotecaProveedorDetailView(DetailView):
+class VinotecaProveedorDetailView(LoginRequiredMixin, DetailView):
     model = VinotecaProveedor
     template_name = "vinoteca/cbv/08 proveedores_detalle.html"
 
-class VinotecaProveedorUpdateView(UpdateView):
+class VinotecaProveedorUpdateView(LoginRequiredMixin, UpdateView):
     model = VinotecaProveedor
     fields = [
         "razon_social" ,
@@ -266,7 +271,7 @@ class VinotecaProveedorUpdateView(UpdateView):
 
     def get_success_url(self):
         return self.success_url
-class VinotecaProveedorDeleteView(DeleteView):
+class VinotecaProveedorDeleteView(LoginRequiredMixin, DeleteView):
     model = VinotecaProveedor
     template_name = "vinoteca/cbv/10 proveedores_borrar.html"
     success_url = reverse_lazy("vinoteca:cbv/lista_proveedores")
@@ -275,12 +280,12 @@ class VinotecaProveedorDeleteView(DeleteView):
         return self.success_url
 
 # CLIENTE
-class VinotecaClienteListView(ListView):
+class VinotecaClienteListView(LoginRequiredMixin, ListView):
     model = VinotecaCliente
     template_name = "vinoteca/cbv/11 clientes_lista.html"
     context_object_name = "clientes"
 
-class VinotecaClienteCreateView(CreateView):
+class VinotecaClienteCreateView(LoginRequiredMixin, CreateView):
     model = VinotecaCliente
     fields = [
         "nombre" ,
@@ -298,11 +303,11 @@ class VinotecaClienteCreateView(CreateView):
     template_name = "vinoteca/cbv/12 clientes_alta.html"
     success_url = "lista_clientes"
 
-class VinotecaClienteDetailView(DetailView):
+class VinotecaClienteDetailView(LoginRequiredMixin, DetailView):
     model = VinotecaCliente
     template_name = "vinoteca/cbv/13 clientes_detalle.html"
 
-class VinotecaClienteUpdateView(UpdateView):
+class VinotecaClienteUpdateView(LoginRequiredMixin, UpdateView):
     model = VinotecaCliente
     fields = [
         "nombre" ,
@@ -322,7 +327,7 @@ class VinotecaClienteUpdateView(UpdateView):
 
     def get_success_url(self):
         return self.success_url
-class VinotecaClienteDeleteView(DeleteView):
+class VinotecaClienteDeleteView(LoginRequiredMixin, DeleteView):
     model = VinotecaCliente
     template_name = "vinoteca/cbv/15 clientes_borrar.html"
     success_url = reverse_lazy("vinoteca:cbv/lista_clientes")

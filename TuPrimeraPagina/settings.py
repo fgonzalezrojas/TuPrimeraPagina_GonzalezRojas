@@ -127,3 +127,8 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = "/cuentas/login/"
+LOGIN_REDIRECT_URL = "/vinoteca/home"
+LOGOUT_REDIRECT_URL = "/cuentas/login/"
+

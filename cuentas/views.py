@@ -21,10 +21,6 @@ class UserRegisterView(CreateView):
     success_url = reverse_lazy("cuentas:login")
 class UserLoginView(LoginView):
     template_name = "cuentas/01 login.html"
-    success_url = reverse_lazy("vinoteca:home")
-
-    def get_success_url(self):
-        return self.success_url
     
 # AVATAR
 
