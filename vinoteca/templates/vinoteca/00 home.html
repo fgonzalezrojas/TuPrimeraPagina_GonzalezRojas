@@ -233,9 +233,11 @@
 
             {% if user.is_authenticated %}
 
-                {% if user.avatar and user.avatar.imagen %}
-                    <p><img src="{{ user.avatar.imagen.url }}" alt="Avatar"></p>
-                {% endif %}
+                <p style="text-align: center;">
+                    {% if user.avatar and user.avatar.imagen %}
+                    <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="border-radius: 50%; width: 60px; height: 60px; object-fit: cover;">
+                    {% endif %}
+                </p>
 
                 <p style="text-align: center; color: steelblue; font-size: 0.8em; margin-bottom: 0.1em;">
                     <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>

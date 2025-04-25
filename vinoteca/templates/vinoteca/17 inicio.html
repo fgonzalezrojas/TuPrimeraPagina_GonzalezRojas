@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
 
         {% if user.avatar and user.avatar.imagen %}
-        <p><img src="{{ user.avatar.imagen.url }}" alt="Avatar"></p>
+        <p><img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="border-radius: 50%; width: 90px; height: 90px; object-fit: cover;"></p>
         {% endif %}
 
         !<a style="text-align: center; color: steelblue; margin-bottom: 0.1em;">
