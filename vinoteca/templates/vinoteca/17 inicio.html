@@ -12,14 +12,12 @@
 
         !<a style="text-align: center; color: steelblue; margin-bottom: 0.1em;">
             {{user.username}}</a> has iniciado sesión!
-        <p>
-        <li class="nav-item"><a class="nav-link" href="{% url 'cuentas:editar' %}"><i class="bi bi-person-circle"></i> Editar Perfil</a></li>
-        </p>
+        
+        <p class="nav-item"><a class="nav-link" href="{% url 'cuentas:editar' %}"><i class="bi bi-person-circle"></i>✏️ Editar Perfil</a></p>
 
-        <p>
-        <li class="nav-item"><a class="nav-link" href="{% url 'cuentas:logout' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
-        </p>
+        <P class="nav-item"><a class="nav-link" href="{% url 'cuentas:logout' %}"><i class="bi bi-box-arrow-right"></i>🔒 Cerrar sesión</a></p>
 
     {% endif %}
 
 {% endblock INICIO %}
+

@@ -240,7 +240,7 @@
                 </p>
 
                 <p style="text-align: center; color: steelblue; font-size: 0.8em; margin-bottom: 0.1em;">
-                    <a href="{% url 'cuentas:logout' %}">Cerrar sesión ({{ user.username }})</a>
+                    <a href="{% url 'cuentas:logout' %}">🔒 Cerrar sesión ({{ user.username }})</a>
                 </p>
 
                 <div class="sidebar-admin">
@@ -257,8 +257,8 @@
                 </div>
 
             {% else %}
-                <a href="{% url 'cuentas:login' %}">Iniciar sesión</a>
-                <a href="{% url 'cuentas:signup' %}">Registrarse</a>
+                <a href="{% url 'cuentas:login' %}">🔐 Iniciar sesión</a>
+                <a href="{% url 'cuentas:signup' %}">✏️ Registrarse</a>
 
             {% endif %}
 
@@ -376,3 +376,4 @@
     </script>
 </body>
 </html>
+
