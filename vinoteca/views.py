@@ -144,6 +144,7 @@ def alta_clientes(request):
             BD_Modelo = VinotecaCliente(
                 nombre = formulario.cleaned_data["nombre"],
                 apellido = formulario.cleaned_data["apellido"],
+                fecha_de_nacimiento = formulario.cleaned_data["fecha_de_nacimiento"],
                 DNI = formulario.cleaned_data["DNI"],
                 mail = formulario.cleaned_data["mail"],
                 provincia = formulario.cleaned_data["provincia"],
@@ -296,6 +297,7 @@ class VinotecaClienteCreateView(LoginRequiredMixin, CreateView):
     fields = [
         "nombre" ,
         "apellido" ,
+        "fecha_de_nacimiento" ,
         "DNI" ,
         "mail" ,
         "provincia" ,
@@ -318,6 +320,7 @@ class VinotecaClienteUpdateView(LoginRequiredMixin, UpdateView):
     fields = [
         "nombre" ,
         "apellido" ,
+        "fecha_de_nacimiento" ,
         "DNI" ,
         "mail" ,
         "provincia" ,

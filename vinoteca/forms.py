@@ -51,6 +51,7 @@ class VinotecaClienteForm(ModelForm):
         fields = [
             "nombre" ,
             "apellido" ,
+            "fecha_de_nacimiento" ,
             "DNI" ,
             "mail" ,
             "provincia" ,

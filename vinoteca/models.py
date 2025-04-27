@@ -62,6 +62,7 @@ class VinotecaCliente(models.Model):
     altura =  models.CharField(max_length=50)
     piso =  models.CharField(max_length=50)
     telefono = models.IntegerField()
+    fecha_de_nacimiento = models.DateField()
     
     def __str__(self):
         return f"{self.apellido} {self.nombre} {self.DNI}"
