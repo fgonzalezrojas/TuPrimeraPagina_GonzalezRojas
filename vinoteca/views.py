@@ -86,23 +86,29 @@ def lista_champagne(request):
     return render(request, "vinoteca/03 champagne.html", context= contexto)
 
 def busqueda_productos(request):
+    mensaje = None
     if request.method == "GET":
-        contexto = {"formulario" : VinotecaProductoBusquedaForm()}
-        return render(request, "vinoteca/09 busqueda_productos.html", context= contexto)
+        contexto = {"formulario": VinotecaProductoBusquedaForm(), "mensaje": mensaje}
+        return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
     else:
         formulario = VinotecaProductoBusquedaForm(request.POST)
 
         if formulario.is_valid():
             etiqueta = formulario.cleaned_data["etiqueta"]
             resultado_busqueda = VinotecaProducto.objects.filter(etiqueta__icontains=etiqueta)
-            
-            contexto = {
-                "skus" : resultado_busqueda,
+
+            if not resultado_busqueda:
+                mensaje = "No contamos con la etiqueta '{}' en nuestra selección de bebidas.".format(etiqueta)
+                contexto = {"formulario": formulario, "mensaje": mensaje}
+                return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
+            else:
+                contexto = {
+                    "skus": resultado_busqueda,
                 }
-            return render(request, "vinoteca/10 maestro_productos.html", context= contexto)
-        
-        contexto = {"formulario" : VinotecaProductoBusquedaForm()}
-        return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
+                return render(request, "vinoteca/10 maestro_productos.html", context=contexto)
+        else:
+            contexto = {"formulario": formulario}
+            return render(request, "vinoteca/09 busqueda_productos.html", context=contexto)
     
 from django.shortcuts import redirect
 

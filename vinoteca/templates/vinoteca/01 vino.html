@@ -8,6 +8,10 @@
         {% if material.bebida == "Vino" %}
             <li>{{ material.etiqueta }} - {{ material.tamaño_ml }} ml | $ {{ material.precio }}</li>
         {% endif %}
+
+    {% empty %}
+    <li> Estamos buscando la mejor selección de vinos para usted 🍷</li> 
     {% endfor %}
 
 {% endblock INICIO %}
+

@@ -13,5 +13,9 @@
         <button type="submit">Buscar</button>
 
     </form>
+
+    {% if mensaje %}
+    <h3><p style="color: red;">{{ mensaje }}</p></h3>
+    {% endif %}
         
 {% endblock INICIO %}
